@@ -1,0 +1,79 @@
+{
+  "date_when_last_generated": "2023-07-24 17:58:49.414758",
+  "generated_os": null,
+  "blender_foundation_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender",
+  "installed_blender_versions": {
+    "3.3": {
+      "blender_exe_path": null,
+      "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.3\\scripts\\addons",
+      "addons": {
+        "Node-2-JSON": {
+          "bl_info": {}
+        }
+      }
+    },
+    "3.4": {
+      "blender_exe_path": "C:\\Program Files\\Blender Foundation\\blender 4.0\\blender.exe",
+      "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.4\\scripts\\addons",
+      "addons": {
+        "GeoSim": {
+          "bl_info": {}
+        },
+        "physical-starlight-atmosphere": {
+          "bl_info": {}
+        }
+      }
+    },
+    "3.5": {
+      "blender_exe_path": null,
+      "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.5\\scripts\\addons",
+      "addons": {
+        "Geo-Scatter": {
+          "bl_info": {}
+        },
+        "GeoSim": {
+          "bl_info": {}
+        },
+        "Node-2-JSON": {
+          "bl_info": {}
+        },
+        "physical-celestial-objects": {
+          "bl_info": {}
+        },
+        "physical-starlight-atmosphere": {
+          "bl_info": {}
+        },
+        "polyhavenassets": {
+          "bl_info": {}
+        },
+        "True-Sky": {
+          "bl_info": {}
+        }
+      }
+    },
+    "3.6": {
+      "blender_exe_path": null,
+      "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.6\\scripts\\addons",
+      "addons": {
+        "Node-2-JSON": {
+          "bl_info": {}
+        },
+        "physical-starlight-atmosphere": {
+          "bl_info": {}
+        }
+      }
+    },
+    "4.0": {
+      "blender_exe_path": null,
+      "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\4.0\\scripts\\addons",
+      "addons": {
+        "Node-2-JSON": {
+          "bl_info": {}
+        },
+        "physical-starlight-atmosphere": {
+          "bl_info": {}
+        }
+      }
+    }
+  }
+}
