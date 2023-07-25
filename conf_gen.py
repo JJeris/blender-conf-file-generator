@@ -7,11 +7,12 @@ specified path Blender addon installation path.
 import time
 from datetime import datetime
 from pathlib import Path
-
+import importlib.util
 import platform
 import json
 import appdirs
-
+import sys
+import re
 
 ADDON_SOURCE_PATH = None
 OS_NAME = platform.system()
@@ -63,8 +64,68 @@ def comp_fn_locate_addon_paths():
                     config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name] = {}
                     config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["bl_info"] = {}
 
-                    init_file_path = path_1 / "__init__.py"
-                    print(init_file_path)
+
+                    file_path = path_1 / "__init__.py"
+                    print(file_path)
+
+                    with open(file_path, "r") as file:
+                        code = compile(file.read(), file_path, "exec")
+                        globals_dict = {}
+                        exec(code, globals_dict)
+                        bl_info_json = globals_dict.get("bl_info")
+                        config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["bl_info"] = bl_info_json
+                    # try:
+                    #     # Open the file in read mode
+                    #     with open(file_path, "r", encoding="utf-8") as file:
+                    #         # Read the entire contents of the file
+                    #         file_contents = file.read()
+
+                    #         # Use regular expressions to find the bl_info dictionary
+                    #         pattern = r"bl_info\s*=\s*{[^}]*}"
+                    #         match = re.search(pattern, file_contents)
+
+                    #         if match:
+                    #             # Extract the matched content and convert it to a dictionary
+                    #             bl_info_str = match.group()
+                    #             bl_info_dict = eval(bl_info_str)
+
+                    #             print(bl_info_dict)
+                    #             config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["bl_info"] = bl_info_dict
+                    #         else:
+                    #             print("bl_info not found in the file.")
+                    # except FileNotFoundError:
+                    #     print(f"File not found: {file_path}")
+                    # except UnicodeDecodeError:
+                    #     print(f"Error decoding file: {file_path}")
+                    # except SyntaxError:
+                    #     print("Syntax error: Could not parse bl_info dictionary.")
+
+
+                    # try:
+                    #     # Open the file in read mode with explicit encoding specification
+                    #     with open(init_file_path, "r", encoding="utf-8") as file:
+                    #         # Read the entire contents of the file
+                    #         file_contents = file.read()
+                    #         print(file_contents)
+                    # except FileNotFoundError:
+                    #     print(f"File not found: {init_file_path}")
+                    # except UnicodeDecodeError:
+                    #     print(f"Error decoding file: {init_file_path}")
+
+
+                    # init_file_path = path_1 / "__init__.py"
+                    # print(init_file_path)
+                    
+                    # # Convert the file path to a package name
+                    # package_name = "custom_module"
+
+                    # # Load the script as a module
+                    # spec = importlib.util.spec_from_file_location(package_name, init_file_path)
+                    # module = importlib.util.module_from_spec(spec)
+                    # spec.loader.exec_module(module)
+
+                    # bl_info = module.bl_info
+                    # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["bl_info"] = bl_info
 
 
 
@@ -73,12 +134,13 @@ def comp_fn_locate_addon_paths():
 
     BLENDER_SOURCE_PATH = Path("C:\\") / "Program Files" / "Blender Foundation"
     for path_2 in BLENDER_SOURCE_PATH.iterdir():
-        print(path_2.name[-3:])
+        # print(path_2.name[-3:])
         for path_3 in path_2.iterdir():
             
             if (path_3.name == "blender.exe"):
-                print(path_3.name)
+                # print(path_3.name)
                 config_json["installed_blender_versions"][path_2.name[-3:]]["blender_exe_path"] = str(path_3)
+
 
     
     with open(CONFIG_JSON_FILE_NAME, 'w') as json_f:
