@@ -1,6 +1,6 @@
 {
-  "date_when_last_generated": "2023-07-24 17:58:49.414758",
-  "generated_os": null,
+  "date_when_last_generated": "2023-07-25 16:30:51.581768",
+  "os_on_which_generated": "Windows",
   "blender_foundation_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender",
   "installed_blender_versions": {
     "3.3": {
@@ -13,7 +13,7 @@
       }
     },
     "3.4": {
-      "blender_exe_path": "C:\\Program Files\\Blender Foundation\\blender 4.0\\blender.exe",
+      "blender_exe_path": "C:\\Program Files\\Blender Foundation\\Blender 3.4\\blender.exe",
       "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.4\\scripts\\addons",
       "addons": {
         "GeoSim": {
@@ -25,7 +25,7 @@
       }
     },
     "3.5": {
-      "blender_exe_path": null,
+      "blender_exe_path": "C:\\Program Files\\Blender Foundation\\Blender 3.5\\blender.exe",
       "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.5\\scripts\\addons",
       "addons": {
         "Geo-Scatter": {
@@ -52,7 +52,7 @@
       }
     },
     "3.6": {
-      "blender_exe_path": null,
+      "blender_exe_path": "C:\\Program Files\\Blender Foundation\\Blender 3.6\\blender.exe",
       "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.6\\scripts\\addons",
       "addons": {
         "Node-2-JSON": {
@@ -64,7 +64,7 @@
       }
     },
     "4.0": {
-      "blender_exe_path": null,
+      "blender_exe_path": "C:\\Program Files\\Blender Foundation\\blender 4.0\\blender.exe",
       "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\4.0\\scripts\\addons",
       "addons": {
         "Node-2-JSON": {

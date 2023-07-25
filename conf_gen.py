@@ -73,9 +73,12 @@ def comp_fn_locate_addon_paths():
 
     BLENDER_SOURCE_PATH = Path("C:\\") / "Program Files" / "Blender Foundation"
     for path_2 in BLENDER_SOURCE_PATH.iterdir():
+        print(path_2.name[-3:])
         for path_3 in path_2.iterdir():
+            
             if (path_3.name == "blender.exe"):
-                config_json["installed_blender_versions"]["3.4"]["blender_exe_path"] = str(path_3)
+                print(path_3.name)
+                config_json["installed_blender_versions"][path_2.name[-3:]]["blender_exe_path"] = str(path_3)
 
     
     with open(CONFIG_JSON_FILE_NAME, 'w') as json_f:
