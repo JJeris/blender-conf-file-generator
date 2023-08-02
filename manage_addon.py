@@ -1,4 +1,11 @@
+import bpy
+# import addon_utils
+
+for i in  range(0, len(bpy.context.preferences.addons)):
+    print(bpy.context.preferences.addons[i].module)
+    
 import addon_utils
+
 
 all_addons = addon_utils.modules()
 for addon in all_addons:
