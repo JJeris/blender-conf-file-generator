@@ -1,34 +1,114 @@
+import bpy
+from pathlib import Path
+import time
+
+# Get the directory where the script is located
+script_directory = Path(__file__).resolve().parent
+
+# Construct the file path based on the script directory
+file_path = script_directory / "example.txt"
+
+start = time.time()
+
+try:
+    # Open the file in write mode ('w')
+    with file_path.open('w') as file:
+        
+        # Write the content to the file
+        for addon in bpy.context.preferences.addons:
+            addon_module = addon.module
+            file.write(f"{addon_module} \n")
+    
+        end = time.time()
+        file.write(str(end - start))        
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+
+# import bpy
+# import os
+# import time
+
+# # Get the directory where the script is located
+# script_directory = os.path.dirname(os.path.realpath(__file__))
+
+# # Construct the file path based on the script directory
+# file_path = os.path.join(script_directory, "example.txt")
+
+# start = time.time()
+
+# try:
+#     # Open the file in write mode ('w')
+#     with open(file_path, 'w') as file:
+        
+#         # Write the content to the file
+#         for i in range(len(bpy.context.preferences.addons)):
+#             addon_module = bpy.context.preferences.addons[i].module
+#             file.write(f"{addon_module} \n")
+    
+#         end = time.time()
+#         file.write(str(end - start))        
+# except Exception as e:
+#     print(f"An error occurred: {e}")
+
+
+# import bpy
+# import time
+
+# file_path = "C:\\Users\\J\\Desktop\\PA\\code\\blender-conf-file-generator\\example.txt"
+# # import addon_utils
+
+# start = time.time()
+
+# try:
+#     # Open the file in write mode ('w')
+#     with open(file_path, 'w') as file:
+        
+#         # Write the content to the file
+#         for i in  range(0, len(bpy.context.preferences.addons)):
+#             # print(bpy.context.preferences.addons[i].module)
+#             file.write(f"{bpy.context.preferences.addons[i].module} \n")
+    
+#         end = time.time()
+#         # print(end-start)
+#         file.write(str(end-start))        
+#     # print(f"Content written to '{file_path}' successfully.")
+    
+# except Exception as e:
+#     print(f"An error occurred: {e}")
+
 # import addon_utils
+# import bpy
 
 # all_addons = addon_utils.modules()
 # for addon in all_addons:
 #     print(addon.__name__)
 
 
-import bpy
-import time
+# import bpy
+# import time
 
-file_path = "C:\\Users\\usr\\Desktop\\Physical addons\\code\\test_BVM\\example.txt"
-# import addon_utils
+# file_path = "C:\\Users\\J\\Desktop\\PA\\code\\blender-conf-file-generator\\example.txt"
+# # import addon_utils
 
-start = time.time()
+# start = time.time()
 
-try:
-    # Open the file in write mode ('w')
-    with open(file_path, 'w') as file:
+# try:
+#     # Open the file in write mode ('w')
+#     with open(file_path, 'w') as file:
         
-        # Write the content to the file
-        for i in  range(0, len(bpy.context.preferences.addons)):
-            # print(bpy.context.preferences.addons[i].module)
-            file.write(f"{bpy.context.preferences.addons[i].module} \n")
+#         # Write the content to the file
+#         for i in  range(0, len(bpy.context.preferences.addons)):
+#             # print(bpy.context.preferences.addons[i].module)
+#             file.write(f"{bpy.context.preferences.addons[i].module} \n")
     
-        end = time.time()
-        # print(end-start)
-        file.write(str(end-start))        
-    # print(f"Content written to '{file_path}' successfully.")
+#         end = time.time()
+#         # print(end-start)
+#         file.write(str(end-start))        
+#     # print(f"Content written to '{file_path}' successfully.")
     
-except Exception as e:
-    print(f"An error occurred: {e}")
+# except Exception as e:
+#     print(f"An error occurred: {e}")
 
 
 
@@ -82,7 +162,7 @@ except Exception as e:
 #         print(f"Category: {bl_info.get('category', 'N/A')}")
 #     else:
 #         print(f"Addon '{addon_name}' not found.")
-
+# #
 # def disable_addon(addon_name):
 #     bpy.ops.preferences.addon_disable(module=addon_name)
 #     print(f"Addon '{addon_name}' disabled.")

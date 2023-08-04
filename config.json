@@ -1,77 +1,146 @@
 {
-  "date_when_last_generated": "2023-07-25 17:10:13.741041",
+  "date_when_last_generated": "2023-08-04 18:49:57.764934",
   "os_on_which_generated": "Windows",
   "blender_foundation_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender",
   "installed_blender_versions": {
-    "3.3": {
-      "blender_exe_path": null,
-      "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.3\\scripts\\addons",
-      "addons": {
-        "Node-2-JSON": {
-          "bl_info": {}
-        }
-      }
-    },
     "3.4": {
-      "blender_exe_path": "C:\\Program Files\\Blender Foundation\\Blender 3.4\\blender.exe",
+      "blender_launcher_exe_path": "C:\\Program Files\\Blender Foundation\\Blender 3.4\\blender-launcher.exe",
       "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.4\\scripts\\addons",
       "addons": {
         "GeoSim": {
-          "bl_info": {}
+          "bl_info": {
+            "init_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.4\\scripts\\addons\\GeoSim\\__init__.py"
+          },
+          "statuss": {
+            "installed": true,
+            "enabled": true
+          }
         },
         "physical-starlight-atmosphere": {
-          "bl_info": {}
+          "bl_info": {
+            "init_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.4\\scripts\\addons\\physical-starlight-atmosphere\\__init__.py"
+          },
+          "statuss": {
+            "installed": true,
+            "enabled": true
+          }
         }
       }
     },
     "3.5": {
-      "blender_exe_path": "C:\\Program Files\\Blender Foundation\\Blender 3.5\\blender.exe",
+      "blender_launcher_exe_path": "C:\\Program Files\\Blender Foundation\\Blender 3.5\\blender-launcher.exe",
       "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.5\\scripts\\addons",
       "addons": {
         "Geo-Scatter": {
-          "bl_info": {}
+          "bl_info": {
+            "init_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.5\\scripts\\addons\\Geo-Scatter\\__init__.py"
+          },
+          "statuss": {
+            "installed": true,
+            "enabled": true
+          }
         },
         "GeoSim": {
-          "bl_info": {}
+          "bl_info": {
+            "init_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.5\\scripts\\addons\\GeoSim\\__init__.py"
+          },
+          "statuss": {
+            "installed": true,
+            "enabled": true
+          }
         },
         "Node-2-JSON": {
-          "bl_info": {}
+          "bl_info": {
+            "init_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.5\\scripts\\addons\\Node-2-JSON\\__init__.py"
+          },
+          "statuss": {
+            "installed": true,
+            "enabled": true
+          }
         },
         "physical-celestial-objects": {
-          "bl_info": {}
+          "bl_info": {
+            "init_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.5\\scripts\\addons\\physical-celestial-objects\\__init__.py"
+          },
+          "statuss": {
+            "installed": true,
+            "enabled": true
+          }
         },
         "physical-starlight-atmosphere": {
-          "bl_info": {}
+          "bl_info": {
+            "init_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.5\\scripts\\addons\\physical-starlight-atmosphere\\__init__.py"
+          },
+          "statuss": {
+            "installed": true,
+            "enabled": true
+          }
         },
         "polyhavenassets": {
-          "bl_info": {}
+          "bl_info": {
+            "init_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.5\\scripts\\addons\\polyhavenassets\\__init__.py"
+          },
+          "statuss": {
+            "installed": true,
+            "enabled": true
+          }
         },
         "True-Sky": {
-          "bl_info": {}
+          "bl_info": {
+            "init_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.5\\scripts\\addons\\True-Sky\\__init__.py"
+          },
+          "statuss": {
+            "installed": true,
+            "enabled": true
+          }
         }
       }
     },
     "3.6": {
-      "blender_exe_path": "C:\\Program Files\\Blender Foundation\\Blender 3.6\\blender.exe",
+      "blender_launcher_exe_path": "C:\\Program Files\\Blender Foundation\\Blender 3.6\\blender-launcher.exe",
       "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.6\\scripts\\addons",
       "addons": {
         "Node-2-JSON": {
-          "bl_info": {}
+          "bl_info": {
+            "init_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.6\\scripts\\addons\\Node-2-JSON\\__init__.py"
+          },
+          "statuss": {
+            "installed": true,
+            "enabled": true
+          }
         },
         "physical-starlight-atmosphere": {
-          "bl_info": {}
+          "bl_info": {
+            "init_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\3.6\\scripts\\addons\\physical-starlight-atmosphere\\__init__.py"
+          },
+          "statuss": {
+            "installed": true,
+            "enabled": true
+          }
         }
       }
     },
     "4.0": {
-      "blender_exe_path": "C:\\Program Files\\Blender Foundation\\blender 4.0\\blender.exe",
+      "blender_launcher_exe_path": "C:\\Program Files\\Blender Foundation\\blender 4.0\\blender-launcher.exe",
       "scripts_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\4.0\\scripts\\addons",
       "addons": {
         "Node-2-JSON": {
-          "bl_info": {}
+          "bl_info": {
+            "init_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\4.0\\scripts\\addons\\Node-2-JSON\\__init__.py"
+          },
+          "statuss": {
+            "installed": true,
+            "enabled": true
+          }
         },
         "physical-starlight-atmosphere": {
-          "bl_info": {}
+          "bl_info": {
+            "init_path": "C:\\Users\\J\\AppData\\Roaming\\Blender Foundation\\Blender\\4.0\\scripts\\addons\\physical-starlight-atmosphere\\__init__.py"
+          },
+          "statuss": {
+            "installed": true,
+            "enabled": true
+          }
         }
       }
     }

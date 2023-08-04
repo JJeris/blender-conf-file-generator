@@ -1,18 +1,20 @@
 """
 This code assumes that the addon files are located in the already 
-specified path Blender addon installation path.
+specified path - Blender addon installation path.
+
+Author: @JJeris
 
 """
 
 import time
 from datetime import datetime
 from pathlib import Path
-import importlib.util
 import platform
 import json
-import appdirs
-import sys
-import re
+# import importlib.util
+# import appdirs
+# import sys
+# import re
 
 ADDON_SOURCE_PATH = None
 OS_NAME = platform.system()
@@ -29,7 +31,7 @@ SCRIPT_NAME = "__init__"
 
 
 
-def comp_fn_locate_addon_paths():
+def comp_fn_generate_config():
     start_time = time.time()
     config_json["date_when_last_generated"] = str(datetime.now())
 
@@ -49,7 +51,7 @@ def comp_fn_locate_addon_paths():
 
             # Need an insertSort algo here
             config_json["installed_blender_versions"][str(path_0.name)] = {}
-            config_json["installed_blender_versions"][str(path_0.name)]["blender_exe_path"] = None
+            config_json["installed_blender_versions"][str(path_0.name)]["blender_launcher_exe_path"] = None
             
             SCRIPTS_SOURCE_PATH = ADDON_SOURCE_PATH / path_0.name / "scripts" / "addons"
             # print(SCRIPTS_SOURCE_PATH)
@@ -65,15 +67,80 @@ def comp_fn_locate_addon_paths():
                     config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["bl_info"] = {}
 
 
-                    file_path = path_1 / "__init__.py"
-                    print(file_path)
+                    init_file_path = path_1 / "__init__.py"
+                    # print(init_file_path)
+                    config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["bl_info"]["init_path"] = str(init_file_path)
+                    config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["statuss"] = {}
+                    config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["statuss"]["installed"] = True
+                    config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["statuss"]["enabled"] = True
+        else:
+            pass
 
-                    with open(file_path, "r") as file:
-                        code = compile(file.read(), file_path, "exec")
-                        globals_dict = {}
-                        exec(code, globals_dict)
-                        bl_info_json = globals_dict.get("bl_info")
-                        config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["bl_info"] = bl_info_json
+    BLENDER_SOURCE_PATH = Path("C:\\") / "Program Files" / "Blender Foundation"
+    for path_2 in BLENDER_SOURCE_PATH.iterdir():
+        # print(path_2.name[-3:])
+        for path_3 in path_2.iterdir():
+            
+            if (path_3.name == "blender-launcher.exe"):
+                # print(path_3.name)
+                config_json["installed_blender_versions"][path_2.name[-3:]]["blender_launcher_exe_path"] = str(path_3)
+
+
+    
+    with open(CONFIG_JSON_FILE_NAME, 'w') as json_f:
+        json.dump(config_json, json_f, indent=2)
+    end_time = time.time()
+    print(end_time - start_time)
+    # return json.dumps(config_json, indent=2)
+
+
+def main():
+    """
+    Main function
+    """
+    comp_fn_generate_config()
+
+
+main()
+
+
+
+                    # # Read the addon file and extract bl_info
+                    # addon_file = path_1 / f"{SCRIPT_NAME}.py"
+                    # if addon_file.exists():
+                    #     with open(addon_file, 'r') as f:
+                    #         try:
+                    #             parsed_code = ast.parse(f.read())
+                    #             for node in ast.walk(parsed_code):
+                    #                 if isinstance(node, ast.Assign) and len(node.targets) == 1 and \
+                    #                         isinstance(node.targets[0], ast.Name) and node.targets[0].id == "bl_info":
+                    #                     bl_info_dict = ast.literal_eval(node.value)
+                    #                     # Now bl_info_dict contains the contents of bl_info from the addon file.
+                    #                     # You can access and process the required information here.
+                    #                     print(bl_info_dict)
+                    #                     # For example, to access the 'name' and 'author' values:
+                    #                     addon_name = bl_info_dict.get("name")
+                    #                     addon_author = bl_info_dict.get("author")
+                    #                     # Add the information to your config_json or do any other processing as needed.
+                    #                     # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["author"] = addon_author
+                    #                     # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["version"] = bl_info_dict.get("version")
+                    #                     # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["enabled"] = True
+                    #                     # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["version_latest"] = False
+                    #         except SyntaxError:
+                    #             # Handle any syntax errors in the addon file if needed.
+                    #             pass
+                    # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["author"] = "N/A"
+                    # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["version"] = None
+                    # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["enabled"] = True
+                    # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["version_latest"] = False
+                    # config_json["installed_blender_versions"][path_0.name]["addons"].append(path_1.name)
+
+                    # with open(file_path, "r") as file:
+                    #     code = compile(file.read(), file_path, "exec")
+                    #     globals_dict = {}
+                    #     exec(code, globals_dict)
+                    #     bl_info_json = globals_dict.get("bl_info")
+                    #     config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["bl_info"] = bl_info_json
                     # try:
                     #     # Open the file in read mode
                     #     with open(file_path, "r", encoding="utf-8") as file:
@@ -126,65 +193,3 @@ def comp_fn_locate_addon_paths():
 
                     # bl_info = module.bl_info
                     # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["bl_info"] = bl_info
-
-
-
-        else:
-            pass
-
-    BLENDER_SOURCE_PATH = Path("C:\\") / "Program Files" / "Blender Foundation"
-    for path_2 in BLENDER_SOURCE_PATH.iterdir():
-        # print(path_2.name[-3:])
-        for path_3 in path_2.iterdir():
-            
-            if (path_3.name == "blender.exe"):
-                # print(path_3.name)
-                config_json["installed_blender_versions"][path_2.name[-3:]]["blender_exe_path"] = str(path_3)
-
-
-    
-    with open(CONFIG_JSON_FILE_NAME, 'w') as json_f:
-        json.dump(config_json, json_f, indent=2)
-    end_time = time.time()
-    print(end_time - start_time)
-    # return json.dumps(config_json, indent=2)
-
-
-def main():
-    """
-    Main function
-    """
-    comp_fn_locate_addon_paths()
-main()
-
-
-
-                    # # Read the addon file and extract bl_info
-                    # addon_file = path_1 / f"{SCRIPT_NAME}.py"
-                    # if addon_file.exists():
-                    #     with open(addon_file, 'r') as f:
-                    #         try:
-                    #             parsed_code = ast.parse(f.read())
-                    #             for node in ast.walk(parsed_code):
-                    #                 if isinstance(node, ast.Assign) and len(node.targets) == 1 and \
-                    #                         isinstance(node.targets[0], ast.Name) and node.targets[0].id == "bl_info":
-                    #                     bl_info_dict = ast.literal_eval(node.value)
-                    #                     # Now bl_info_dict contains the contents of bl_info from the addon file.
-                    #                     # You can access and process the required information here.
-                    #                     print(bl_info_dict)
-                    #                     # For example, to access the 'name' and 'author' values:
-                    #                     addon_name = bl_info_dict.get("name")
-                    #                     addon_author = bl_info_dict.get("author")
-                    #                     # Add the information to your config_json or do any other processing as needed.
-                    #                     # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["author"] = addon_author
-                    #                     # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["version"] = bl_info_dict.get("version")
-                    #                     # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["enabled"] = True
-                    #                     # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["version_latest"] = False
-                    #         except SyntaxError:
-                    #             # Handle any syntax errors in the addon file if needed.
-                    #             pass
-                    # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["author"] = "N/A"
-                    # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["version"] = None
-                    # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["enabled"] = True
-                    # config_json["installed_blender_versions"][path_0.name]["addons"][path_1.name]["version_latest"] = False
-                    # config_json["installed_blender_versions"][path_0.name]["addons"].append(path_1.name)
